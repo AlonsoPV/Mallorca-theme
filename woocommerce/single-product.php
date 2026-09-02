@@ -7,35 +7,21 @@
 
 defined( 'ABSPATH' ) || exit;
 
-get_header( 'shop' );
-do_action( 'woocommerce_before_main_content' );
+get_header();
+
+$elementor_id = function_exists( 'mallorca_elementor_product_template_id' ) ? mallorca_elementor_product_template_id() : 0;
 
 while ( have_posts() ) :
 	the_post();
-	?>
-	<div id="product-<?php the_ID(); ?>" <?php wc_product_class( 'mallorca-single', get_the_ID() ); ?>>
-		<div class="mallorca-single__grid">
-			<div class="mallorca-single__gallery">
-				<?php
-				do_action( 'woocommerce_before_single_product_summary' );
-				?>
-			</div>
-			<div id="mallorca-add-to-cart" class="mallorca-single__summary summary entry-summary">
-				<?php if ( function_exists( 'woocommerce_breadcrumb' ) ) : ?>
-					<div class="mallorca-breadcrumb"><?php woocommerce_breadcrumb(); ?></div>
-				<?php endif; ?>
-				<?php
-				do_action( 'woocommerce_single_product_summary' );
-				?>
-			</div>
-		</div>
-		<div class="mallorca-single__after">
-			<?php do_action( 'woocommerce_after_single_product_summary' ); ?>
-		</div>
-	</div>
-	<?php
-	do_action( 'woocommerce_after_single_product' );
+	if ( $elementor_id && function_exists( 'mallorca_elementor_content' ) ) {
+		echo '<main id="primary" class="mallorca-main mallorca-main--elementor mallorca-woo">';
+		mallorca_elementor_content( $elementor_id );
+		echo '</main>';
+	} else {
+		do_action( 'woocommerce_before_main_content' );
+		get_template_part( 'template-parts/woocommerce/product' );
+		do_action( 'woocommerce_after_main_content' );
+	}
 endwhile;
 
-do_action( 'woocommerce_after_main_content' );
-get_footer( 'shop' );
+get_footer();

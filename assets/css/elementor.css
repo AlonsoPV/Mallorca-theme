@@ -7,7 +7,11 @@
 .elementor-widget-mallorca_locations,
 .elementor-widget-mallorca_instagram,
 .elementor-widget-mallorca_newsletter,
-.elementor-widget-mallorca_cta {
+.elementor-widget-mallorca_cta,
+.elementor-widget-mallorca_shop,
+.elementor-widget-mallorca_product,
+.elementor-widget-mallorca_cart,
+.elementor-widget-mallorca_checkout {
 	width: 100%;
 }
 

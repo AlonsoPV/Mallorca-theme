@@ -1,0 +1,35 @@
+{
+  "title": "Mallorca — Producto",
+  "type": "page",
+  "version": "0.4",
+  "page_settings": {
+    "hide_title": "yes",
+    "template": "default"
+  },
+  "content": [
+    {
+      "id": "mprod01",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "stretch_section": "section-stretched",
+        "gap": "no"
+      },
+      "elements": [
+        {
+          "id": "mprodc1",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "mprodw1",
+              "elType": "widget",
+              "widgetType": "mallorca_product",
+              "settings": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

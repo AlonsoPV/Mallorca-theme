@@ -34,7 +34,7 @@ function mallorca_demo_page() {
 	?>
 	<div class="wrap">
 		<h1><?php esc_html_e( 'Mallorca — contenido demo', 'mallorca' ); ?></h1>
-		<p><?php esc_html_e( 'Crea páginas, sucursales, menús y productos ficticios. Si Elementor está activo, la portada se arma con los widgets Mallorca.', 'mallorca' ); ?></p>
+		<p><?php esc_html_e( 'Crea páginas, sucursales, menús y productos ficticios. Si Elementor está activo, arma la portada, la tienda, el producto, el carrito y el checkout con widgets Mallorca.', 'mallorca' ); ?></p>
 		<?php if ( $done ) : ?>
 			<p><strong><?php esc_html_e( 'El contenido demo ya se importó. Puedes volver a importar para completar lo que falte (es idempotente).', 'mallorca' ); ?></strong></p>
 		<?php endif; ?>
@@ -78,6 +78,7 @@ function mallorca_import_demo_content() {
 	mallorca_demo_menus( $pages );
 	mallorca_demo_customizer( $images, $pages );
 	mallorca_demo_elementor_home( $pages['home'], $images );
+	mallorca_demo_elementor_woocommerce();
 	update_option( 'mallorca_demo_imported', 1 );
 	flush_rewrite_rules();
 }
@@ -553,6 +554,52 @@ function mallorca_demo_elementor_home( $page_id, $images ) {
 	update_post_meta( $page_id, '_elementor_version', '3.20.0' );
 	update_post_meta( $page_id, '_elementor_data', wp_slash( wp_json_encode( $data ) ) );
 	update_post_meta( $page_id, '_wp_page_template', 'templates/elementor-fullwidth.php' );
+}
+
+/**
+ * Elementor documents for shop, product, cart and checkout.
+ */
+function mallorca_demo_elementor_woocommerce() {
+	if ( ! did_action( 'elementor/loaded' ) || ! function_exists( 'wc_get_page_id' ) ) {
+		return;
+	}
+
+	$map = array(
+		'shop'     => array( 'mallorca_shop', 'templates/template-shop.php' ),
+		'cart'     => array( 'mallorca_cart', 'templates/template-cart.php' ),
+		'checkout' => array( 'mallorca_checkout', 'templates/template-checkout.php' ),
+	);
+
+	foreach ( $map as $page => $data ) {
+		$id = wc_get_page_id( $page );
+		if ( $id && $id > 0 ) {
+			mallorca_apply_elementor_widget_document( $id, $data[0] );
+			update_post_meta( $id, '_wp_page_template', $data[1] );
+		}
+	}
+
+	$product_id = (int) get_option( 'mallorca_elementor_product_template', 0 );
+	if ( ! $product_id || ! get_post( $product_id ) ) {
+		$post_type  = post_type_exists( 'elementor_library' ) ? 'elementor_library' : 'page';
+		$product_id = wp_insert_post(
+			array(
+				'post_title'  => __( 'Mallorca — Producto', 'mallorca' ),
+				'post_status' => 'publish',
+				'post_type'   => $post_type,
+				'post_name'   => 'mallorca-producto',
+			)
+		);
+	}
+
+	if ( $product_id && ! is_wp_error( $product_id ) ) {
+		$type = post_type_exists( 'elementor_library' ) ? 'product' : 'wp-page';
+		mallorca_apply_elementor_widget_document( (int) $product_id, 'mallorca_product', $type );
+		update_post_meta( (int) $product_id, '_mallorca_wc_template', 'product' );
+		if ( defined( 'ELEMENTOR_PRO_VERSION' ) ) {
+			update_post_meta( (int) $product_id, '_elementor_conditions', array( 'include/woocommerce/product' ) );
+		}
+		update_option( 'mallorca_elementor_product_template', (int) $product_id );
+	}
 }
 
 /**

@@ -139,11 +139,20 @@ function mallorca_body_classes( $classes ) {
 	if ( mallorca_is_elementor_page() ) {
 		$classes[] = 'mallorca-has-elementor';
 	}
+	if ( mallorca_is_store_surface() ) {
+		$classes[] = 'mallorca-store-surface';
+	}
 	if ( function_exists( 'is_checkout' ) && is_checkout() && ! is_wc_endpoint_url() ) {
 		$classes[] = 'mallorca-checkout-page';
 	}
 	if ( function_exists( 'is_cart' ) && is_cart() ) {
 		$classes[] = 'mallorca-cart-page';
+	}
+	if ( function_exists( 'is_shop' ) && is_shop() ) {
+		$classes[] = 'mallorca-shop-page';
+	}
+	if ( function_exists( 'is_product' ) && is_product() ) {
+		$classes[] = 'mallorca-product-page';
 	}
 	return $classes;
 }

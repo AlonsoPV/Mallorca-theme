@@ -241,3 +241,45 @@ body.admin-bar .mallorca-header {
 		justify-self: start;
 	}
 }
+
+body.mallorca-store-surface .mallorca-header,
+body.woocommerce .mallorca-header,
+body.woocommerce-page .mallorca-header,
+body.woocommerce-cart .mallorca-header,
+body.woocommerce-checkout .mallorca-header,
+body.single-product .mallorca-header,
+body.elementor-template-canvas .mallorca-header {
+	display: block !important;
+	visibility: visible !important;
+	position: sticky;
+	top: 0;
+	z-index: 100;
+	background: var(--color-ivory);
+}
+
+body.admin-bar.mallorca-store-surface .mallorca-header,
+body.admin-bar.woocommerce .mallorca-header,
+body.admin-bar.woocommerce-page .mallorca-header,
+body.admin-bar.elementor-template-canvas .mallorca-header {
+	top: 32px;
+}
+
+@media (max-width: 782px) {
+	body.admin-bar.mallorca-store-surface .mallorca-header,
+	body.admin-bar.woocommerce .mallorca-header,
+	body.admin-bar.woocommerce-page .mallorca-header,
+	body.admin-bar.elementor-template-canvas .mallorca-header {
+		top: 46px;
+	}
+}
+
+body.mallorca-store-surface .mallorca-footer,
+body.woocommerce .mallorca-footer,
+body.woocommerce-page .mallorca-footer,
+body.woocommerce-cart .mallorca-footer,
+body.woocommerce-checkout .mallorca-footer,
+body.single-product .mallorca-footer,
+body.elementor-template-canvas .mallorca-footer {
+	display: block !important;
+	visibility: visible !important;
+}

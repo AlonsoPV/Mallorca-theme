@@ -69,6 +69,54 @@ function mallorca_is_commerce_page() {
 }
 
 /**
+ * Shop, product, cart, checkout and account — always keep theme chrome.
+ *
+ * @return bool
+ */
+function mallorca_is_store_surface() {
+	if ( ! function_exists( 'is_woocommerce' ) ) {
+		return false;
+	}
+
+	return is_woocommerce() || is_cart() || is_checkout() || is_account_page() || is_wc_endpoint_url();
+}
+
+/**
+ * Print the Mallorca header bar and overlays.
+ *
+ * @param bool $with_skip_link Whether to output the skip link.
+ */
+function mallorca_print_header_chrome( $with_skip_link = false ) {
+	if ( did_action( 'mallorca_header_chrome' ) ) {
+		return;
+	}
+
+	if ( $with_skip_link ) {
+		echo '<a class="skip-link screen-reader-text" href="#primary">' . esc_html__( 'Saltar al contenido', 'mallorca' ) . '</a>';
+	}
+
+	get_template_part( 'template-parts/header/site-header' );
+	get_template_part( 'template-parts/header/mobile-drawer' );
+	get_template_part( 'template-parts/search/overlay' );
+	get_template_part( 'template-parts/header/mini-cart' );
+	echo '<div class="mallorca-toast js-mallorca-toast" hidden role="status"></div>';
+
+	do_action( 'mallorca_header_chrome' );
+}
+
+/**
+ * Print the Mallorca footer.
+ */
+function mallorca_print_footer_chrome() {
+	if ( did_action( 'mallorca_footer_chrome' ) ) {
+		return;
+	}
+
+	get_template_part( 'template-parts/footer/site-footer' );
+	do_action( 'mallorca_footer_chrome' );
+}
+
+/**
  * Whether the current queried object was built with Elementor.
  *
  * @param int $post_id Post ID.

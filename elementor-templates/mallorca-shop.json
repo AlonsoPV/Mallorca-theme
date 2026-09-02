@@ -1,0 +1,35 @@
+{
+  "title": "Mallorca — Tienda",
+  "type": "page",
+  "version": "0.4",
+  "page_settings": {
+    "hide_title": "yes",
+    "template": "default"
+  },
+  "content": [
+    {
+      "id": "mshop01",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "stretch_section": "section-stretched",
+        "gap": "no"
+      },
+      "elements": [
+        {
+          "id": "mshopc1",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "mshopw1",
+              "elType": "widget",
+              "widgetType": "mallorca_shop",
+              "settings": {}
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
