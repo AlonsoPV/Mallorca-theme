@@ -1,0 +1,412 @@
+.mallorca-hero {
+	position: relative;
+	min-height: 85vh;
+	display: grid;
+	align-items: end;
+	color: var(--color-ivory);
+}
+
+.mallorca-hero__media {
+	position: absolute;
+	inset: 0;
+}
+
+.mallorca-hero__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.mallorca-hero__media::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgb(43 33 24 / 8%) 20%, rgb(43 33 24 / 55%) 100%);
+}
+
+.mallorca-hero__copy {
+	position: relative;
+	z-index: 1;
+	padding: 0 6vw 8vh;
+	max-width: 52rem;
+}
+
+.mallorca-hero__copy h1 {
+	color: var(--color-ivory);
+	margin-bottom: 1.4rem;
+}
+
+.mallorca-hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+}
+
+.mallorca-cats,
+.mallorca-featured,
+.mallorca-exp,
+.mallorca-locations,
+.mallorca-ig {
+	padding: 4.5rem 0;
+}
+
+.mallorca-cats__grid {
+	width: min(calc(100% - 2.5rem), var(--max));
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1.4fr 1fr 1fr;
+	grid-template-rows: 42vh 28vh;
+	gap: 0.65rem;
+}
+
+.mallorca-cats__item {
+	position: relative;
+	overflow: hidden;
+	display: block;
+	min-height: 220px;
+}
+
+.mallorca-cats__item:first-child {
+	grid-row: 1 / span 2;
+}
+
+.mallorca-cats__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 400ms ease;
+}
+
+.mallorca-cats__item:hover .mallorca-cats__img {
+	transform: scale(1.03);
+}
+
+.mallorca-cats__item span {
+	position: absolute;
+	left: 1rem;
+	bottom: 1rem;
+	color: var(--color-ivory);
+	font-family: var(--font-heading);
+	font-size: 1.8rem;
+	text-shadow: 0 8px 24px rgb(43 33 24 / 35%);
+}
+
+.mallorca-products--grid .products,
+ul.products.columns-4 {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2rem 1.2rem;
+	list-style: none;
+	margin: 0 auto;
+	padding: 0 1.25rem 2rem;
+	width: min(100%, calc(var(--max) + 2.5rem));
+}
+
+.mallorca-story {
+	display: grid;
+	grid-template-columns: 1.12fr 0.88fr;
+	min-height: 78vh;
+}
+
+.mallorca-story__media {
+	min-height: 52vh;
+	background: var(--color-bone);
+}
+
+.mallorca-story__img,
+.mallorca-season__img,
+.mallorca-exp__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.mallorca-story__copy,
+.mallorca-season__copy {
+	padding: clamp(2rem, 5vw, 5rem);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.mallorca-story__copy {
+	position: relative;
+	background: var(--color-cream);
+	padding-left: clamp(2.25rem, 5.5vw, 5.25rem);
+}
+
+.mallorca-story__copy::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 12%;
+	bottom: 12%;
+	width: 4px;
+	background: var(--color-burgundy);
+}
+
+.mallorca-story__facts {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+	margin: 0.4rem 0 1.6rem;
+	padding-top: 1.4rem;
+	border-top: 1px solid var(--color-sand);
+}
+
+.mallorca-story__fact-n {
+	font-family: var(--font-heading);
+	font-size: clamp(1.35rem, 2vw, 1.8rem);
+	line-height: 1.1;
+	color: var(--color-burgundy);
+	margin: 0 0 0.2rem;
+}
+
+.mallorca-story__fact-l {
+	font-size: 0.68rem;
+	letter-spacing: 0.16em;
+	text-transform: uppercase;
+	color: var(--color-olive);
+	margin: 0;
+}
+
+.mallorca-season {
+	position: relative;
+	min-height: 72vh;
+	display: grid;
+	align-items: end;
+	color: var(--color-ivory);
+}
+
+.mallorca-season__media {
+	position: absolute;
+	inset: 0;
+}
+
+.mallorca-season__media::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgb(43 33 24 / 42%);
+}
+
+.mallorca-season__copy {
+	position: relative;
+	z-index: 1;
+	max-width: 36rem;
+}
+
+.mallorca-season__copy h2 {
+	color: var(--color-ivory);
+}
+
+.mallorca-exp__grid {
+	width: min(calc(100% - 2.5rem), var(--max));
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1.2fr 0.9fr 0.9fr;
+	gap: 0.7rem;
+}
+
+.mallorca-exp__item figcaption {
+	margin-top: 0.7rem;
+	font-size: 0.9rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--color-olive);
+}
+
+.mallorca-locations__grid {
+	width: min(calc(100% - 2.5rem), var(--max));
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.25rem;
+}
+
+.mallorca-location-card {
+	display: flex;
+	flex-direction: column;
+	background: var(--color-cream);
+	min-height: 100%;
+}
+
+.mallorca-location-card__media {
+	display: block;
+	overflow: hidden;
+	background: var(--color-bone);
+}
+
+.mallorca-location-card__media img {
+	width: 100%;
+	aspect-ratio: 16 / 10;
+	object-fit: cover;
+	transition: transform 420ms ease;
+}
+
+.mallorca-location-card:hover .mallorca-location-card__media img {
+	transform: scale(1.03);
+}
+
+.mallorca-location-card__body {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	padding: 1.35rem 1.35rem 1.25rem;
+	border-top: 3px solid var(--color-burgundy);
+}
+
+.mallorca-location-card__body h3 {
+	font-size: clamp(1.85rem, 2.6vw, 2.4rem);
+	margin: 0 0 1rem;
+}
+
+.mallorca-location-card__body h3 a:hover {
+	color: var(--color-burgundy);
+}
+
+.mallorca-location-card__meta {
+	list-style: none;
+	margin: 0 0 1.25rem;
+	padding: 0;
+	display: grid;
+	gap: 0.7rem;
+}
+
+.mallorca-location-card__meta li {
+	display: grid;
+	grid-template-columns: 1.15rem 1fr;
+	gap: 0.75rem;
+	align-items: start;
+	font-size: 0.92rem;
+	line-height: 1.45;
+	color: var(--color-olive);
+}
+
+.mallorca-location-card__icon {
+	display: flex;
+	justify-content: center;
+	color: var(--color-burgundy);
+	padding-top: 0.12rem;
+}
+
+.mallorca-location-card__icon svg {
+	width: 16px;
+	height: 16px;
+}
+
+.mallorca-location-card__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.55rem;
+	margin-top: auto;
+}
+
+.mallorca-location-card__actions .mallorca-btn {
+	flex: 1 1 8.5rem;
+}
+
+.mallorca-ig__grid {
+	width: min(calc(100% - 2.5rem), var(--max));
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 0.45rem;
+}
+
+.mallorca-ig__grid img {
+	width: 100%;
+	aspect-ratio: 1;
+	object-fit: cover;
+}
+
+.mallorca-news {
+	text-align: center;
+	padding: 5rem 1.5rem 6rem;
+	max-width: 40rem;
+	margin: 0 auto;
+}
+
+.mallorca-news__form {
+	display: flex;
+	gap: 0.5rem;
+	justify-content: center;
+	margin-top: 1.5rem;
+}
+
+.mallorca-news__form input[type="email"] {
+	flex: 1;
+	min-width: 0;
+	border: 0;
+	border-bottom: 1px solid var(--color-sand);
+	background: transparent;
+	padding: 0.8rem 0;
+}
+
+.mallorca-news__hint {
+	font-size: 0.8rem;
+	color: var(--color-olive);
+	margin-top: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+	.mallorca-cats__grid,
+	.mallorca-exp__grid,
+	.mallorca-products--grid .products,
+	ul.products.columns-4 {
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: none;
+	}
+
+	.mallorca-cats__item:first-child {
+		grid-row: auto;
+	}
+
+	.mallorca-story,
+	.mallorca-locations__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.mallorca-story__media {
+		min-height: 42vh;
+	}
+
+	.mallorca-story__copy::before {
+		top: 0;
+		bottom: auto;
+		width: 4.5rem;
+		height: 4px;
+	}
+
+	.mallorca-ig__grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.mallorca-hero {
+		min-height: 78vh;
+	}
+
+	.mallorca-cats__grid,
+	.mallorca-exp__grid,
+	.mallorca-products--grid .products,
+	ul.products.columns-4 {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.mallorca-news__form {
+		flex-direction: column;
+	}
+
+	.mallorca-story__facts {
+		grid-template-columns: 1fr;
+		gap: 0.85rem;
+	}
+}
+
+@media (max-width: 430px) {
+	.mallorca-hero__copy {
+		padding: 0 1.25rem 6vh;
+	}
+}

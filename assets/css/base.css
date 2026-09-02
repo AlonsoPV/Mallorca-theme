@@ -1,0 +1,171 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	background: var(--color-ivory);
+	color: var(--color-ink);
+	font-family: var(--font-body);
+	font-size: 1.0625rem;
+	line-height: 1.65;
+	-webkit-font-smoothing: antialiased;
+}
+
+img,
+svg,
+video {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--color-burgundy);
+}
+
+h1, h2, h3, h4 {
+	font-family: var(--font-heading);
+	font-weight: 500;
+	color: var(--color-chocolate);
+	line-height: 1.12;
+	letter-spacing: -0.02em;
+	margin: 0 0 0.6em;
+}
+
+h1 {
+	font-size: clamp(2.4rem, 6vw, 5.2rem);
+}
+
+h2 {
+	font-size: clamp(1.8rem, 4vw, 3.4rem);
+}
+
+h3 {
+	font-size: clamp(1.4rem, 2.4vw, 2rem);
+}
+
+p {
+	margin: 0 0 1em;
+}
+
+button,
+input,
+select,
+textarea {
+	font: inherit;
+	color: inherit;
+}
+
+:focus-visible {
+	outline: 2px solid var(--color-burgundy);
+	outline-offset: 3px;
+}
+
+.screen-reader-text {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+}
+
+.skip-link:focus {
+	position: fixed;
+	top: 8px;
+	left: 8px;
+	z-index: 10000;
+	background: var(--color-burgundy);
+	color: var(--color-ivory);
+	padding: 0.6rem 1rem;
+	clip: auto;
+	width: auto;
+	height: auto;
+}
+
+.mallorca-container {
+	width: min(calc(100% - 2.5rem), var(--max));
+	margin-inline: auto;
+}
+
+.mallorca-main {
+	min-height: 50vh;
+}
+
+.mallorca-page-head {
+	padding: 2rem 0 2rem;
+	max-width: 40rem;
+}
+
+.mallorca-prose {
+	max-width: 42rem;
+	padding-bottom: 4rem;
+}
+
+.mallorca-prose img {
+	margin: 1.5rem 0;
+}
+
+.mallorca-kicker {
+	font-family: var(--font-body);
+	font-size: 0.72rem;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	color: var(--color-olive);
+	margin-bottom: 0.8rem;
+}
+
+.mallorca-kicker--light {
+	color: var(--color-sand);
+}
+
+.mallorca-kicker--accent {
+	color: var(--color-burgundy);
+}
+
+.mallorca-section-head {
+	width: min(calc(100% - 2.5rem), var(--max));
+	margin: 0 auto 1.75rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+	gap: 1rem;
+}
+
+.mallorca-empty {
+	text-align: center;
+	padding: 3rem 1rem;
+}
+
+.mallorca-empty--page {
+	padding: 18vh 1rem 12vh;
+}
+
+.mallorca-post-grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 1.5rem 1.25rem;
+	padding-bottom: 4rem;
+}
+
+.mallorca-post-card h2 {
+	font-size: 1.6rem;
+	margin-top: 0.7rem;
+}
+
+@media (min-width: 900px) {
+	.mallorca-post-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}

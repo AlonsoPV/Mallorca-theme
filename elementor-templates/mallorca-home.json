@@ -1,0 +1,169 @@
+{
+  "title": "Mallorca — Portada",
+  "type": "page",
+  "version": "0.4",
+  "page_settings": {
+    "hide_title": "yes"
+  },
+  "content": [
+    {
+      "id": "mhero01",
+      "elType": "section",
+      "settings": {
+        "layout": "full_width",
+        "stretch_section": "section-stretched",
+        "gap": "no"
+      },
+      "elements": [
+        {
+          "id": "mheroc1",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            {
+              "id": "mherow1",
+              "elType": "widget",
+              "widgetType": "mallorca_hero",
+              "settings": {}
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mcats01",
+      "elType": "section",
+      "settings": { "layout": "full_width", "gap": "no" },
+      "elements": [
+        {
+          "id": "mcatsc1",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            { "id": "mcatsw1", "elType": "widget", "widgetType": "mallorca_categories", "settings": {} }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mfav01",
+      "elType": "section",
+      "settings": { "layout": "full_width", "gap": "no" },
+      "elements": [
+        {
+          "id": "mfavc1",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            { "id": "mfavw1", "elType": "widget", "widgetType": "mallorca_featured", "settings": {} }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "msto01",
+      "elType": "section",
+      "settings": { "layout": "full_width", "gap": "no" },
+      "elements": [
+        {
+          "id": "mstoc1",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            { "id": "mstow1", "elType": "widget", "widgetType": "mallorca_story", "settings": {} }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "msea01",
+      "elType": "section",
+      "settings": { "layout": "full_width", "gap": "no" },
+      "elements": [
+        {
+          "id": "mseac1",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            { "id": "mseaw1", "elType": "widget", "widgetType": "mallorca_season", "settings": {} }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mexp01",
+      "elType": "section",
+      "settings": { "layout": "full_width", "gap": "no" },
+      "elements": [
+        {
+          "id": "mexpc1",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            { "id": "mexpw1", "elType": "widget", "widgetType": "mallorca_experience", "settings": {} }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mloc01",
+      "elType": "section",
+      "settings": { "layout": "full_width", "gap": "no" },
+      "elements": [
+        {
+          "id": "mlocc1",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            { "id": "mlocw1", "elType": "widget", "widgetType": "mallorca_locations", "settings": {} }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mig01",
+      "elType": "section",
+      "settings": { "layout": "full_width", "gap": "no" },
+      "elements": [
+        {
+          "id": "migc1",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            { "id": "migw1", "elType": "widget", "widgetType": "mallorca_instagram", "settings": {} }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mnew01",
+      "elType": "section",
+      "settings": { "layout": "full_width", "gap": "no" },
+      "elements": [
+        {
+          "id": "mnewc1",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            { "id": "mneww1", "elType": "widget", "widgetType": "mallorca_newsletter", "settings": {} }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mcta01",
+      "elType": "section",
+      "settings": { "layout": "full_width", "gap": "no" },
+      "elements": [
+        {
+          "id": "mctac1",
+          "elType": "column",
+          "settings": { "_column_size": 100 },
+          "elements": [
+            { "id": "mctaw1", "elType": "widget", "widgetType": "mallorca_cta", "settings": {} }
+          ]
+        }
+      ]
+    }
+  ]
+}

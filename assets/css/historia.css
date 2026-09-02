@@ -1,0 +1,181 @@
+.mallorca-historia__intro {
+	padding: clamp(3.5rem, 8vh, 6.5rem) 0 2.5rem;
+}
+
+.mallorca-historia__intro-inner {
+	max-width: 46rem;
+}
+
+.mallorca-historia__intro h1 {
+	margin-bottom: 1.1rem;
+}
+
+.mallorca-historia__intro h1::after {
+	content: "";
+	display: block;
+	width: 3.5rem;
+	height: 3px;
+	margin-top: 1.15rem;
+	background: var(--color-burgundy);
+}
+
+.mallorca-historia__lead {
+	font-size: clamp(1.1rem, 2vw, 1.28rem);
+	line-height: 1.7;
+	max-width: 38rem;
+	color: var(--color-olive);
+}
+
+.mallorca-historia__media {
+	width: min(calc(100% - 2.5rem), var(--max));
+	margin: 0 auto;
+	max-height: 68vh;
+	overflow: hidden;
+}
+
+.mallorca-historia__img {
+	width: 100%;
+	height: min(68vh, 720px);
+	object-fit: cover;
+}
+
+.mallorca-historia__quote {
+	padding: clamp(3rem, 7vh, 5.5rem) 0;
+	background: var(--color-cream);
+}
+
+.mallorca-historia__quote blockquote {
+	margin: 0;
+	max-width: 40rem;
+}
+
+.mallorca-historia__quote p {
+	font-family: var(--font-heading);
+	font-size: clamp(1.7rem, 3.4vw, 2.7rem);
+	font-style: italic;
+	line-height: 1.25;
+	color: var(--color-chocolate);
+	margin: 0;
+}
+
+.mallorca-historia__quote p::before {
+	content: "";
+	display: block;
+	width: 2.25rem;
+	height: 3px;
+	margin-bottom: 1.25rem;
+	background: var(--color-burgundy);
+}
+
+.mallorca-historia__timeline,
+.mallorca-historia__values {
+	padding: clamp(3.5rem, 8vh, 6rem) 0;
+}
+
+.mallorca-historia__timeline h2,
+.mallorca-historia__values h2 {
+	max-width: 18ch;
+	margin-bottom: 2.5rem;
+}
+
+.mallorca-historia__moments {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem 2.25rem;
+	counter-reset: none;
+}
+
+.mallorca-historia__moments li {
+	position: relative;
+	padding-top: 1.15rem;
+	border-top: 1px solid var(--color-sand);
+}
+
+.mallorca-historia__moments li::before {
+	content: "";
+	position: absolute;
+	top: -1px;
+	left: 0;
+	width: 2.5rem;
+	height: 3px;
+	background: var(--color-burgundy);
+}
+
+.mallorca-historia__year {
+	font-size: 0.72rem;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--color-burgundy);
+	margin-bottom: 0.55rem;
+}
+
+.mallorca-historia__values {
+	background: var(--color-cream);
+}
+
+.mallorca-historia__values-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+}
+
+.mallorca-historia__values-grid article {
+	padding: 1.75rem 1.5rem 1.6rem;
+	background: var(--color-ivory);
+	border-top: 3px solid var(--color-burgundy);
+}
+
+.mallorca-historia__index {
+	font-family: var(--font-heading);
+	font-size: 1.6rem;
+	color: var(--color-burgundy);
+	margin-bottom: 0.35rem;
+}
+
+.mallorca-historia__prose .mallorca-prose {
+	padding-top: 1rem;
+}
+
+.mallorca-historia__cta {
+	background: var(--color-chocolate);
+	color: var(--color-ivory);
+	padding: clamp(4rem, 9vh, 6.5rem) 0;
+	text-align: center;
+}
+
+.mallorca-historia__cta h2 {
+	color: var(--color-ivory);
+	margin-bottom: 0.7rem;
+}
+
+.mallorca-historia__cta p {
+	max-width: 32rem;
+	margin-inline: auto;
+	color: color-mix(in srgb, var(--color-ivory) 78%, transparent);
+}
+
+.mallorca-historia__actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.75rem;
+	margin-top: 1.75rem;
+}
+
+@media (max-width: 900px) {
+	.mallorca-historia__moments,
+	.mallorca-historia__values-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.mallorca-historia__media {
+		width: 100%;
+	}
+
+	.mallorca-historia__img {
+		height: 48vh;
+	}
+}

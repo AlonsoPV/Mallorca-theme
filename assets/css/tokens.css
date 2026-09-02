@@ -1,0 +1,81 @@
+@font-face {
+	font-family: "Cormorant Garamond";
+	src: url("../fonts/cormorant-400.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cormorant Garamond";
+	src: url("../fonts/cormorant-italic.woff2") format("woff2");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cormorant Garamond";
+	src: url("../fonts/cormorant-500.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cormorant Garamond";
+	src: url("../fonts/cormorant-600.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cormorant Garamond";
+	src: url("../fonts/cormorant-700.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Figtree;
+	src: url("../fonts/figtree-400.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Figtree;
+	src: url("../fonts/figtree-500.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: Figtree;
+	src: url("../fonts/figtree-600.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--color-ivory: #f6f1e8;
+	--color-bone: #ebe4d8;
+	--color-cream: #f3ede3;
+	--color-ink: #2b2118;
+	--color-burgundy: #dc1427;
+	--color-chocolate: #3d2418;
+	--color-olive: #5a5840;
+	--color-sand: #c9bba6;
+	--color-white: #fffcfa;
+	--font-heading: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+	--font-body: Figtree, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--space: clamp(1.25rem, 3vw, 3rem);
+	--max: 1280px;
+	--header-h: 5.5rem;
+	--ease: 220ms ease;
+}

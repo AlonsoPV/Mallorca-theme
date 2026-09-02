@@ -1,0 +1,51 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"landingPage": "/",
+	"preferredVersions": {
+		"php": "8.2",
+		"wp": "latest"
+	},
+	"features": {
+		"networking": true
+	},
+	"steps": [
+		{
+			"step": "login",
+			"username": "admin",
+			"password": "password"
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "woocommerce"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "elementor"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "Pastelería Mallorca",
+				"blogdescription": "Tradición española. Horneada cada día en México.",
+				"timezone_string": "America/Mexico_City",
+				"WPLANG": "es_MX",
+				"woocommerce_onboarding_profile": {
+					"skipped": true
+				},
+				"woocommerce_coming_soon": "no"
+			}
+		}
+	]
+}

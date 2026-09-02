@@ -1,0 +1,13 @@
+body {
+	background: #f6f1e8;
+	font-family: Figtree, sans-serif;
+	color: #2b2118;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3 {
+	font-family: "Cormorant Garamond", Georgia, serif;
+	font-weight: 500;
+	color: #3d2418;
+}

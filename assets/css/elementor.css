@@ -1,0 +1,48 @@
+.elementor-widget-mallorca_hero,
+.elementor-widget-mallorca_season,
+.elementor-widget-mallorca_story,
+.elementor-widget-mallorca_categories,
+.elementor-widget-mallorca_featured,
+.elementor-widget-mallorca_experience,
+.elementor-widget-mallorca_locations,
+.elementor-widget-mallorca_instagram,
+.elementor-widget-mallorca_newsletter,
+.elementor-widget-mallorca_cta {
+	width: 100%;
+}
+
+.mallorca-has-elementor .elementor-section.elementor-section-boxed > .elementor-container {
+	max-width: 100%;
+}
+
+.elementor-kit-mallorca,
+.elementor-page .elementor-widget-button .elementor-button {
+	border-radius: 0;
+}
+
+.elementor-widget-button .elementor-button {
+	background-color: var(--color-burgundy);
+	font-family: var(--font-body);
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	border-radius: 0;
+}
+
+.elementor-widget-heading .elementor-heading-title {
+	font-family: var(--font-heading);
+	font-weight: 500;
+	color: var(--color-chocolate);
+}
+
+.e-con-inner {
+	gap: 0;
+}
+
+.mallorca-main--elementor .elementor-top-section,
+.mallorca-main--elementor .e-con {
+	margin: 0;
+}
+
+body.elementor-editor-active {
+	background: var(--color-ivory);
+}

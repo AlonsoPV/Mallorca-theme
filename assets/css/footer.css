@@ -1,0 +1,247 @@
+.mallorca-footer {
+	background: #000;
+	color: #fff;
+	width: 100%;
+}
+
+.mallorca-footer a {
+	color: #fff;
+}
+
+.mallorca-footer a:hover {
+	color: #fff;
+	opacity: 0.65;
+}
+
+.mallorca-footer a:focus-visible {
+	outline: 2px solid #fff;
+	outline-offset: 3px;
+}
+
+.mallorca-footer__inner {
+	width: min(100%, 1720px);
+	margin: 0 auto;
+	padding: clamp(60px, 7vw, 80px) clamp(24px, 4vw, 72px) 32px;
+}
+
+.mallorca-footer__grid {
+	display: grid;
+	grid-template-columns: 0.9fr 0.9fr 1.25fr 1.25fr;
+	gap: clamp(60px, 6vw, 100px);
+	align-items: start;
+}
+
+.mallorca-footer__logo {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.2rem;
+	margin: 0 0 2.25rem;
+	color: #fff;
+	width: clamp(220px, 16vw, 250px);
+}
+
+.mallorca-footer__logo:hover {
+	opacity: 1;
+	color: #fff;
+}
+
+.mallorca-footer__logo .custom-logo-link,
+.mallorca-footer__logo .custom-logo {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.mallorca-footer__logo .custom-logo {
+	width: 100%;
+	max-width: 250px;
+	height: auto;
+}
+
+.mallorca-footer__logo-name {
+	font-family: var(--font-heading);
+	font-size: clamp(2.6rem, 3.4vw, 3.35rem);
+	font-style: italic;
+	font-weight: 500;
+	letter-spacing: 0.01em;
+	line-height: 0.92;
+	color: #fff;
+}
+
+.mallorca-footer__logo-sub {
+	font-size: 0.7rem;
+	letter-spacing: 0.36em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.78);
+}
+
+.mallorca-footer__comment {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	min-height: 44px;
+	padding: 0.7rem 1.45rem 0.7rem 1.2rem;
+	border: 1px solid rgba(255, 255, 255, 0.85);
+	border-radius: 999px;
+	background: transparent;
+	color: #fff;
+	font-size: 0.95rem;
+	line-height: 1.2;
+	transition: background 200ms ease, color 200ms ease, border-color 200ms ease, opacity 200ms ease;
+}
+
+.mallorca-footer__comment .mallorca-footer__icon,
+.mallorca-footer__comment svg {
+	color: #fff;
+}
+
+.mallorca-footer__comment:hover {
+	background: #fff;
+	border-color: #fff;
+	color: #000;
+	opacity: 1;
+}
+
+.mallorca-footer__comment:hover .mallorca-footer__icon,
+.mallorca-footer__comment:hover svg {
+	color: #000;
+}
+
+.mallorca-footer__title {
+	font-family: var(--font-body);
+	font-size: clamp(22px, 1.5vw, 28px);
+	font-weight: 600;
+	line-height: 1.15;
+	letter-spacing: 0;
+	text-transform: none;
+	color: #fff;
+	margin: 0 0 1.35rem;
+}
+
+.mallorca-footer__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	gap: 14px;
+}
+
+.mallorca-footer__list--store {
+	gap: 16px;
+}
+
+.mallorca-footer__link {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	color: #fff;
+	font-size: clamp(16px, 1.05vw, 18px);
+	line-height: 1.5;
+	overflow-wrap: anywhere;
+	transition: opacity 200ms ease;
+}
+
+.mallorca-footer__link--center {
+	align-items: center;
+	gap: 12px;
+}
+
+.mallorca-footer__icon {
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	width: 18px;
+	height: 18px;
+	margin-top: 0.2em;
+	color: #fff;
+}
+
+.mallorca-footer__link--center .mallorca-footer__icon {
+	margin-top: 0;
+}
+
+.mallorca-footer__icon svg {
+	width: 18px;
+	height: 18px;
+}
+
+.mallorca-footer__bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem 2rem;
+	margin-top: clamp(48px, 5vw, 72px);
+	padding-top: 24px;
+	border-top: 1px solid rgba(255, 255, 255, 0.15);
+	font-size: 0.92rem;
+	color: rgba(255, 255, 255, 0.72);
+}
+
+.mallorca-footer__copy {
+	margin: 0;
+}
+
+.mallorca-footer .mallorca-nav-list {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.35rem 1.5rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.mallorca-footer .mallorca-nav-list a {
+	font-size: 0.92rem;
+	letter-spacing: 0;
+	text-transform: none;
+	color: rgba(255, 255, 255, 0.72);
+}
+
+.mallorca-footer .mallorca-nav-list a::after {
+	content: none;
+}
+
+@media (max-width: 1199px) {
+	.mallorca-footer__grid {
+		grid-template-columns: 1fr 1fr;
+		gap: 56px 48px;
+	}
+}
+
+@media (max-width: 767px) {
+	.mallorca-footer__inner {
+		padding: 32px 20px 40px;
+	}
+
+	.mallorca-footer__grid {
+		grid-template-columns: 1fr;
+		gap: 44px;
+	}
+
+	.mallorca-footer__logo {
+		width: clamp(180px, 62vw, 210px);
+		margin-bottom: 1.75rem;
+	}
+
+	.mallorca-footer__bottom {
+		flex-direction: column;
+		align-items: flex-start;
+		margin-top: 44px;
+	}
+
+	.mallorca-footer .mallorca-nav-list {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.65rem;
+	}
+}
+
+@media (min-width: 1400px) {
+	.mallorca-footer__link {
+		font-size: 18px;
+	}
+}

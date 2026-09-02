@@ -1,0 +1,47 @@
+.woocommerce-account .mallorca-main,
+.woocommerce-account .woocommerce {
+	width: min(calc(100% - 2.5rem), var(--max));
+	margin: 2rem auto 4rem;
+}
+
+.woocommerce-MyAccount-navigation ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem 1.5rem;
+	list-style: none;
+	padding: 0;
+	margin: 0 0 2rem;
+	border-bottom: 1px solid var(--color-sand);
+}
+
+.woocommerce-MyAccount-navigation a {
+	display: inline-block;
+	padding-bottom: 0.7rem;
+	font-size: 0.78rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
+.woocommerce-MyAccount-navigation .is-active a {
+	border-bottom: 1px solid var(--color-burgundy);
+}
+
+.mallorca-account-auth {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3rem;
+}
+
+.woocommerce-form input.input-text {
+	width: 100%;
+	border: 0;
+	border-bottom: 1px solid var(--color-sand);
+	background: transparent;
+	padding: 0.65rem 0;
+}
+
+@media (max-width: 800px) {
+	.mallorca-account-auth {
+		grid-template-columns: 1fr;
+	}
+}

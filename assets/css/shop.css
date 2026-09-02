@@ -1,0 +1,158 @@
+.mallorca-shop-head {
+	padding: 2rem 0 0.5rem;
+}
+
+.mallorca-shop-head h1 {
+	margin: 0.3rem 0 0;
+}
+
+.mallorca-breadcrumb,
+.woocommerce-breadcrumb {
+	font-size: 0.78rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--color-olive);
+	margin-bottom: 0.6rem;
+}
+
+.mallorca-shop-toolbar {
+	width: min(calc(100% - 2.5rem), var(--max));
+	margin: 1.5rem auto 2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	gap: 1rem;
+	flex-wrap: wrap;
+}
+
+.mallorca-filters__row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.8rem 1rem;
+	align-items: end;
+}
+
+.mallorca-filters label span {
+	display: block;
+	font-size: 0.7rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--color-olive);
+	margin-bottom: 0.25rem;
+}
+
+.mallorca-filters select,
+.mallorca-filters input[type="number"],
+.woocommerce-ordering select {
+	border: 0;
+	border-bottom: 1px solid var(--color-sand);
+	background: transparent;
+	padding: 0.45rem 0;
+	min-width: 8rem;
+}
+
+.mallorca-filters-toggle {
+	display: none;
+}
+
+.woocommerce ul.products li.product,
+.mallorca-card {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	float: none;
+	text-align: left;
+	background: none;
+	box-shadow: none;
+	border-radius: 0;
+}
+
+.mallorca-card__media {
+	position: relative;
+	display: block;
+	overflow: hidden;
+	background: var(--color-bone);
+	aspect-ratio: 4 / 5;
+}
+
+.mallorca-card__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: opacity 320ms ease, transform 400ms ease;
+}
+
+.mallorca-card__img--hover {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+}
+
+.mallorca-card:hover .mallorca-card__img--primary {
+	transform: scale(1.02);
+}
+
+.mallorca-card:hover .mallorca-card__img--hover {
+	opacity: 1;
+}
+
+.mallorca-card__body {
+	padding: 0.85rem 0 0;
+}
+
+.mallorca-card .woocommerce-loop-product__title,
+.mallorca-card h2 {
+	font-size: 1.25rem;
+	margin: 0 0 0.2rem;
+}
+
+.mallorca-card__meta {
+	font-size: 0.8rem;
+	color: var(--color-olive);
+	margin: 0;
+}
+
+.mallorca-card .price {
+	display: block;
+	font-size: 0.95rem;
+	margin: 0.25rem 0 0.4rem;
+}
+
+.woocommerce ul.products li.product .button,
+.mallorca-card .button,
+.mallorca-card .add_to_cart_button {
+	background: none;
+	color: var(--color-ink);
+	border-radius: 0;
+	padding: 0;
+	float: none;
+}
+
+@media (max-width: 1024px) {
+	.woocommerce ul.products[class*="columns"] {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.mallorca-filters-toggle {
+		display: inline-flex;
+	}
+
+	.mallorca-filters {
+		display: none;
+		width: 100%;
+	}
+
+	.mallorca-filters.is-open {
+		display: block;
+	}
+
+	.woocommerce ul.products[class*="columns"],
+	ul.products.columns-4 {
+		grid-template-columns: repeat(2, 1fr);
+		padding-inline: 1rem;
+		gap: 1.4rem 0.7rem;
+	}
+}
