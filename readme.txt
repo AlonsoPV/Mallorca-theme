@@ -5,7 +5,7 @@ Tested up to: 6.7
 Requires PHP: 8.1
 WC requires at least: 8.0
 WC tested up to: 9.4
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,12 @@ La portada PHP se sustituye automáticamente si la página de inicio está const
 * Menú móvil y teclado (Esc cierra overlays)
 
 == Changelog ==
+
+= 1.1.0 =
+* Logo de marca en header, footer y menú móvil.
+* Plantillas de tienda, producto, carrito y checkout con header/footer persistentes.
+* Diseño más cálido en ficha de producto, carrito y checkout.
+* Footer más compacto; se quitan categorías y newsletter de la portada.
 
 = 1.0.0 =
 * Primera versión. Tema listo para Elementor + WooCommerce.
