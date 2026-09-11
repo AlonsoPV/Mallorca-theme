@@ -5,7 +5,7 @@ Tested up to: 6.7
 Requires PHP: 8.1
 WC requires at least: 8.0
 WC tested up to: 9.4
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,11 @@ La portada PHP se sustituye automáticamente si la página de inicio está const
 * Menú móvil y teclado (Esc cierra overlays)
 
 == Changelog ==
+
+= 1.2.0 =
+* Portada con ritmo responsivo, espaciado fluido y revelado al scroll.
+* Sección experiencia con imágenes 1:1 del mismo tamaño.
+* Wordmark tipográfico en lugar del logo gráfico.
 
 = 1.1.0 =
 * Logo tipográfico (wordmark) en header y footer.

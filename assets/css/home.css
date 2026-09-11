@@ -279,9 +279,9 @@ ul.products.columns-4 {
 	width: min(calc(100% - clamp(1.5rem, 4vw, 2.5rem)), var(--max));
 	margin: 0 auto;
 	display: grid;
-	grid-template-columns: 1.25fr 0.875fr 0.875fr;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
 	gap: clamp(0.55rem, 1.2vw, 0.85rem);
-	align-items: end;
+	align-items: start;
 }
 
 .mallorca-exp__item {
@@ -289,24 +289,13 @@ ul.products.columns-4 {
 	min-width: 0;
 }
 
-.mallorca-exp__item:first-child {
-	align-self: stretch;
-}
-
 .mallorca-exp__item .mallorca-exp__img,
 .mallorca-exp__item > img {
 	width: 100%;
-	aspect-ratio: 4 / 5;
+	aspect-ratio: 1 / 1;
 	object-fit: cover;
 	background: var(--color-bone);
 	display: block;
-}
-
-.mallorca-exp__item:first-child .mallorca-exp__img,
-.mallorca-exp__item:first-child > img {
-	aspect-ratio: 3 / 4;
-	height: 100%;
-	min-height: 22rem;
 }
 
 .mallorca-exp__item figcaption {
@@ -522,13 +511,6 @@ ul.products.columns-4 {
 
 	.mallorca-exp__grid {
 		grid-template-columns: repeat(3, minmax(0, 1fr));
-		align-items: start;
-	}
-
-	.mallorca-exp__item:first-child .mallorca-exp__img,
-	.mallorca-exp__item:first-child > img {
-		aspect-ratio: 4 / 5;
-		min-height: 0;
 	}
 
 	.mallorca-ig__grid {
