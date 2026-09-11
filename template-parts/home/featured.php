@@ -15,7 +15,7 @@ $args  = isset( $args ) && is_array( $args ) ? $args : array();
 $title = mallorca_arg( $args, 'title', 'featured_title', mallorca_default_copy()['featured_title'] );
 $limit = isset( $args['limit'] ) ? (int) $args['limit'] : 8;
 ?>
-<section class="mallorca-featured">
+<section class="mallorca-featured mallorca-reveal">
 	<div class="mallorca-section-head">
 		<h2><?php echo esc_html( $title ); ?></h2>
 	</div>

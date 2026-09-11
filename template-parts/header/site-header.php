@@ -30,7 +30,11 @@ $right_fallback = array(
 		</nav>
 
 		<div class="mallorca-header__brand">
-			<?php mallorca_the_brand_logo( 'header' ); ?>
+			<?php if ( has_custom_logo() ) : ?>
+				<?php the_custom_logo(); ?>
+			<?php else : ?>
+				<a class="mallorca-wordmark" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Mallorca</a>
+			<?php endif; ?>
 		</div>
 
 		<div class="mallorca-header__right">

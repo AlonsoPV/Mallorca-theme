@@ -95,7 +95,6 @@ function mallorca_import_demo_content() {
 function mallorca_demo_sideload_images() {
 	$map   = (array) get_option( 'mallorca_demo_images', array() );
 	$files = array(
-		'logo'        => '../brand/mallorca-logo-dark.webp',
 		'hero'        => 'hero.jpg',
 		'ensaimada'   => 'product-ensaimada.jpg',
 		'santiago'    => 'product-santiago.jpg',
@@ -122,20 +121,13 @@ function mallorca_demo_sideload_images() {
 		}
 		$path = MALLORCA_DIR . '/assets/images/demo/' . $file;
 		if ( ! file_exists( $path ) ) {
-			$path = MALLORCA_DIR . '/assets/images/' . ltrim( str_replace( '../', '', $file ), '/' );
-		}
-		if ( 'logo' === $key ) {
-			$path = MALLORCA_DIR . '/assets/images/brand/mallorca-logo-dark.webp';
-		}
-		if ( ! file_exists( $path ) ) {
 			continue;
 		}
-		$basename = basename( $path );
-		$tmp      = wp_tempnam( $basename );
+		$tmp = wp_tempnam( $file );
 		copy( $path, $tmp ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_copy
 		$id = media_handle_sideload(
 			array(
-				'name'     => $basename,
+				'name'     => $file,
 				'tmp_name' => $tmp,
 			),
 			0,
@@ -523,9 +515,6 @@ function mallorca_demo_customizer( $images, $pages ) {
 		if ( ! empty( $images[ $key ] ) ) {
 			set_theme_mod( 'mallorca_' . $mod, (int) $images[ $key ] );
 		}
-	}
-	if ( ! empty( $images['logo'] ) ) {
-		set_theme_mod( 'custom_logo', (int) $images['logo'] );
 	}
 	if ( ! empty( $pages['historia'] ) ) {
 		set_theme_mod( 'mallorca_story_cta_url', get_permalink( $pages['historia'] ) );

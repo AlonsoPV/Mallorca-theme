@@ -22,7 +22,7 @@ $query = new WP_Query(
 	)
 );
 ?>
-<section class="mallorca-locations">
+<section class="mallorca-locations mallorca-reveal">
 	<div class="mallorca-section-head">
 		<h2><?php echo esc_html( $title ); ?></h2>
 	</div>

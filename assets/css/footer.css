@@ -39,10 +39,12 @@
 }
 
 .mallorca-footer__logo {
-	display: block;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.2rem;
 	margin: 0;
 	color: #fff;
-	width: clamp(9.5rem, 14vw, 11.5rem);
 }
 
 .mallorca-footer__logo:hover {
@@ -50,19 +52,17 @@
 	color: #fff;
 }
 
-.mallorca-footer__logo .mallorca-brand-logo,
 .mallorca-footer__logo .custom-logo-link,
 .mallorca-footer__logo .custom-logo {
 	display: block;
-	width: 100%;
+	width: auto;
+	max-width: 11.5rem;
 	height: auto;
 	line-height: 0;
 }
 
-.mallorca-footer__logo .mallorca-brand-logo__img,
 .mallorca-footer__logo .custom-logo {
 	width: 100%;
-	max-width: 11.5rem;
 	height: auto;
 }
 
@@ -249,10 +249,6 @@
 		align-items: flex-start;
 		padding-bottom: 1.5rem;
 		margin-bottom: 0.15rem;
-	}
-
-	.mallorca-footer__logo {
-		width: clamp(8.5rem, 42vw, 10rem);
 	}
 
 	.mallorca-footer__title {

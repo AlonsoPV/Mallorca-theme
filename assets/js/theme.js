@@ -136,4 +136,21 @@
 			}, 220);
 		});
 	}
+
+	const revealNodes = $$('.mallorca-reveal');
+	if (revealNodes.length && 'IntersectionObserver' in window) {
+		const io = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (!entry.isIntersecting) return;
+					entry.target.classList.add('is-in');
+					io.unobserve(entry.target);
+				});
+			},
+			{ rootMargin: '0px 0px -8% 0px', threshold: 0.12 }
+		);
+		revealNodes.forEach((node) => io.observe(node));
+	} else {
+		revealNodes.forEach((node) => node.classList.add('is-in'));
+	}
 })();

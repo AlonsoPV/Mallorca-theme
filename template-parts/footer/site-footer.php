@@ -17,9 +17,14 @@ $locations    = mallorca_footer_selected_locations();
 	<div class="mallorca-footer__inner">
 		<div class="mallorca-footer__grid">
 			<div class="mallorca-footer__brand">
-				<div class="mallorca-footer__logo">
-					<?php mallorca_the_brand_logo( 'footer' ); ?>
-				</div>
+				<?php if ( has_custom_logo() ) : ?>
+					<div class="mallorca-footer__logo"><?php the_custom_logo(); ?></div>
+				<?php else : ?>
+					<a class="mallorca-footer__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<span class="mallorca-footer__logo-name">Mallorca</span>
+						<span class="mallorca-footer__logo-sub"><?php esc_html_e( 'Pastelería', 'mallorca' ); ?></span>
+					</a>
+				<?php endif; ?>
 				<?php if ( $comments_url ) : ?>
 					<a class="mallorca-footer__comment" href="<?php echo esc_url( $comments_url ); ?>">
 						<span class="mallorca-footer__icon" aria-hidden="true"><?php echo mallorca_icon( 'comment' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></span>

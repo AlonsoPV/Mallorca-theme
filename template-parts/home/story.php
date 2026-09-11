@@ -30,7 +30,7 @@ $facts = array(
 	array( __( 'Mesa', 'mallorca' ), __( 'Y sobremesa', 'mallorca' ) ),
 );
 ?>
-<section class="mallorca-story">
+<section class="mallorca-story mallorca-reveal">
 	<div class="mallorca-story__media">
 		<?php
 		echo mallorca_image( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

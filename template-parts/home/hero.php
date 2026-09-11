@@ -49,7 +49,7 @@ if ( ! $cta2_url ) {
 		<h1><?php echo esc_html( $title ); ?><br /><?php echo esc_html( $subtitle ); ?></h1>
 		<div class="mallorca-hero__actions">
 			<a class="mallorca-btn mallorca-btn--solid" href="<?php echo esc_url( $cta_url ); ?>"><?php echo esc_html( $cta ); ?></a>
-			<a class="mallorca-btn mallorca-btn--ghost" href="<?php echo esc_url( $cta2_url ); ?>"><?php echo esc_html( $cta2 ); ?></a>
+			<a class="mallorca-btn mallorca-btn--light" href="<?php echo esc_url( $cta2_url ); ?>"><?php echo esc_html( $cta2 ); ?></a>
 		</div>
 	</div>
 </section>

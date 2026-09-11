@@ -80,7 +80,7 @@ La portada PHP se sustituye automáticamente si la página de inicio está const
 == Changelog ==
 
 = 1.1.0 =
-* Logo de marca en header, footer y menú móvil.
+* Logo tipográfico (wordmark) en header y footer.
 * Plantillas de tienda, producto, carrito y checkout con header/footer persistentes.
 * Diseño más cálido en ficha de producto, carrito y checkout.
 * Footer más compacto; se quitan categorías y newsletter de la portada.

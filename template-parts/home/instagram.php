@@ -17,7 +17,7 @@ $shortcode = mallorca_arg( $args, 'shortcode', 'ig_shortcode', '' );
 $gallery   = isset( $args['gallery'] ) && is_array( $args['gallery'] ) ? $args['gallery'] : array();
 $fallback  = array( 'product-ensaimada.jpg', 'product-croissant.jpg', 'product-santiago.jpg', 'experience-cafe.jpg', 'product-palmera.jpg', 'product-caja.jpg' );
 ?>
-<section class="mallorca-ig">
+<section class="mallorca-ig mallorca-reveal">
 	<div class="mallorca-section-head">
 		<h2><?php echo esc_html( $title ); ?></h2>
 	</div>

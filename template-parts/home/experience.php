@@ -20,7 +20,7 @@ $items = array(
 	array( mallorca_arg( $args, 'caption_3', 'exp_3', $copy['exp_3'] ), mallorca_arg_image_id( $args, 'image_3', 'exp_image_3' ), 'experience-bolleria.jpg' ),
 );
 ?>
-<section class="mallorca-exp">
+<section class="mallorca-exp mallorca-reveal">
 	<div class="mallorca-section-head">
 		<h2><?php echo esc_html( $title ); ?></h2>
 	</div>

@@ -31,7 +31,7 @@ if ( ! $cta_url ) {
 	$cta_url = mallorca_shop_url();
 }
 ?>
-<section class="mallorca-season">
+<section class="mallorca-season mallorca-reveal">
 	<div class="mallorca-season__media">
 		<?php
 		echo mallorca_image( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
