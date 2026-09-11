@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div id="mallorca-drawer" class="mallorca-drawer" hidden>
 	<div class="mallorca-drawer__panel" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Menú', 'mallorca' ); ?>">
 		<div class="mallorca-drawer__top">
-			<a class="mallorca-wordmark" href="<?php echo esc_url( home_url( '/' ) ); ?>">Mallorca</a>
+			<?php mallorca_the_brand_logo( 'drawer' ); ?>
 			<button class="mallorca-icon-btn js-mallorca-close-nav" type="button" aria-label="<?php esc_attr_e( 'Cerrar menú', 'mallorca' ); ?>">
 				<?php echo mallorca_icon( 'close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</button>

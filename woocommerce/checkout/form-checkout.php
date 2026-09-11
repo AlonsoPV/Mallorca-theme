@@ -18,6 +18,10 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 ?>
 <form name="checkout" method="post" class="checkout woocommerce-checkout mallorca-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
 	<p class="mallorca-checkout-secure"><?php esc_html_e( 'Compra segura', 'mallorca' ); ?></p>
+	<div class="mallorca-checkout__intro">
+		<h1 class="mallorca-checkout__title"><?php esc_html_e( 'Finalizar pedido', 'mallorca' ); ?></h1>
+		<p class="mallorca-checkout__lead"><?php esc_html_e( 'Revisa tus datos y confirma tu mesa.', 'mallorca' ); ?></p>
+	</div>
 	<div class="mallorca-checkout__layout">
 		<div class="mallorca-checkout__form">
 			<?php if ( $checkout->get_checkout_fields() ) : ?>

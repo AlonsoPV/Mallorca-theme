@@ -23,14 +23,12 @@ else :
 	<main id="primary" class="mallorca-main">
 		<?php
 		get_template_part( 'template-parts/home/hero' );
-		get_template_part( 'template-parts/home/categories' );
 		get_template_part( 'template-parts/home/featured' );
 		get_template_part( 'template-parts/home/story' );
 		get_template_part( 'template-parts/home/season' );
 		get_template_part( 'template-parts/home/experience' );
 		get_template_part( 'template-parts/home/locations' );
 		get_template_part( 'template-parts/home/instagram' );
-		get_template_part( 'template-parts/home/newsletter' );
 		?>
 	</main>
 	<?php

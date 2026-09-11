@@ -79,6 +79,10 @@ function mallorca_import_demo_content() {
 	mallorca_demo_customizer( $images, $pages );
 	mallorca_demo_elementor_home( $pages['home'], $images );
 	mallorca_demo_elementor_woocommerce();
+	if ( class_exists( 'WooCommerce' ) ) {
+		update_option( 'woocommerce_coming_soon', 'no' );
+		update_option( 'woocommerce_store_pages_only', 'no' );
+	}
 	update_option( 'mallorca_demo_imported', 1 );
 	flush_rewrite_rules();
 }
@@ -91,6 +95,7 @@ function mallorca_import_demo_content() {
 function mallorca_demo_sideload_images() {
 	$map   = (array) get_option( 'mallorca_demo_images', array() );
 	$files = array(
+		'logo'        => '../brand/mallorca-logo-dark.webp',
 		'hero'        => 'hero.jpg',
 		'ensaimada'   => 'product-ensaimada.jpg',
 		'santiago'    => 'product-santiago.jpg',
@@ -117,13 +122,20 @@ function mallorca_demo_sideload_images() {
 		}
 		$path = MALLORCA_DIR . '/assets/images/demo/' . $file;
 		if ( ! file_exists( $path ) ) {
+			$path = MALLORCA_DIR . '/assets/images/' . ltrim( str_replace( '../', '', $file ), '/' );
+		}
+		if ( 'logo' === $key ) {
+			$path = MALLORCA_DIR . '/assets/images/brand/mallorca-logo-dark.webp';
+		}
+		if ( ! file_exists( $path ) ) {
 			continue;
 		}
-		$tmp = wp_tempnam( $file );
+		$basename = basename( $path );
+		$tmp      = wp_tempnam( $basename );
 		copy( $path, $tmp ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_copy
 		$id = media_handle_sideload(
 			array(
-				'name'     => $file,
+				'name'     => $basename,
 				'tmp_name' => $tmp,
 			),
 			0,
@@ -512,6 +524,9 @@ function mallorca_demo_customizer( $images, $pages ) {
 			set_theme_mod( 'mallorca_' . $mod, (int) $images[ $key ] );
 		}
 	}
+	if ( ! empty( $images['logo'] ) ) {
+		set_theme_mod( 'custom_logo', (int) $images['logo'] );
+	}
 	if ( ! empty( $pages['historia'] ) ) {
 		set_theme_mod( 'mallorca_story_cta_url', get_permalink( $pages['historia'] ) );
 	}
@@ -543,7 +558,7 @@ function mallorca_demo_elementor_home( $page_id, $images ) {
 		return;
 	}
 
-	$widgets = array( 'mallorca_hero', 'mallorca_categories', 'mallorca_featured', 'mallorca_story', 'mallorca_season', 'mallorca_experience', 'mallorca_locations', 'mallorca_instagram', 'mallorca_newsletter', 'mallorca_cta' );
+	$widgets = array( 'mallorca_hero', 'mallorca_featured', 'mallorca_story', 'mallorca_season', 'mallorca_experience', 'mallorca_locations', 'mallorca_instagram', 'mallorca_cta' );
 	$data    = array();
 	foreach ( $widgets as $widget ) {
 		$data[] = mallorca_elementor_section( $widget, $images );

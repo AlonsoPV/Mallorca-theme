@@ -13,6 +13,7 @@ do_action( 'woocommerce_before_cart' );
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
 	<div class="mallorca-cart__layout">
 		<div class="mallorca-cart__items">
+			<p class="mallorca-cart__kicker"><?php esc_html_e( 'Pastelería Mallorca', 'mallorca' ); ?></p>
 			<h1><?php esc_html_e( 'Tu pedido', 'mallorca' ); ?></h1>
 			<?php if ( WC()->cart->is_empty() ) : ?>
 				<div class="mallorca-empty">

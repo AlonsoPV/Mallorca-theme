@@ -1,45 +1,78 @@
 .mallorca-checkout {
-	width: min(calc(100% - 2.5rem), 1120px);
-	margin: 1.5rem auto 5rem;
+	width: min(calc(100% - 2rem), 1120px);
+	margin: clamp(1.5rem, 3.5vw, 2.25rem) auto clamp(4rem, 8vw, 5.5rem);
 }
 
 .mallorca-checkout-secure {
-	margin: 0 0 1.5rem;
-	letter-spacing: 0.18em;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.45rem;
+	margin: 0 0 1rem;
+	padding: 0.35rem 0.7rem;
+	letter-spacing: 0.16em;
 	text-transform: uppercase;
-	font-size: 0.72rem;
+	font-size: 0.68rem;
 	color: var(--color-olive);
+	background: color-mix(in srgb, var(--color-cream) 80%, transparent);
+	border: 1px solid color-mix(in srgb, var(--color-sand) 45%, transparent);
+}
+
+.mallorca-checkout__intro {
+	margin: 0 0 1.75rem;
+	max-width: 28rem;
+}
+
+.mallorca-checkout__title {
+	margin: 0 0 0.4rem;
+	font-size: clamp(2.2rem, 4.5vw, 3.3rem);
+	line-height: 1;
+	color: var(--color-chocolate);
+}
+
+.mallorca-checkout__lead {
+	margin: 0;
+	color: color-mix(in srgb, var(--color-ink) 78%, transparent);
+	font-size: 1.02rem;
 }
 
 .mallorca-checkout__layout {
 	display: grid;
-	grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
-	gap: clamp(1.75rem, 4vw, 4rem);
+	grid-template-columns: minmax(0, 1.18fr) minmax(270px, 0.82fr);
+	gap: clamp(1.5rem, 4vw, 3.5rem);
 	align-items: start;
 	width: 100%;
 	margin: 0;
 }
 
+.mallorca-checkout__form {
+	min-width: 0;
+}
+
 .mallorca-checkout__block {
-	margin-bottom: 2.25rem;
+	margin-bottom: 1.75rem;
+	padding: clamp(1.2rem, 2.5vw, 1.6rem);
+	background: color-mix(in srgb, var(--color-white) 55%, var(--color-cream));
+	border: 1px solid color-mix(in srgb, var(--color-sand) 38%, transparent);
 }
 
 .mallorca-checkout__block h2,
 .mallorca-checkout__summary h2 {
-	font-size: clamp(1.6rem, 3vw, 2.2rem);
-	margin-bottom: 1rem;
+	font-size: clamp(1.7rem, 3vw, 2.25rem);
+	line-height: 1.05;
+	color: var(--color-chocolate);
+	margin: 0 0 1.1rem;
 }
 
 .mallorca-checkout .form-row {
 	padding: 0;
-	margin: 0 0 1rem;
+	margin: 0 0 0.95rem;
 	width: 100%;
 	float: none;
 }
 
 .mallorca-checkout .form-row-first,
 .mallorca-checkout .form-row-last {
-	width: calc(50% - 0.6rem);
+	width: calc(50% - 0.55rem);
 	float: left;
 }
 
@@ -50,31 +83,43 @@
 .mallorca-checkout input.input-text,
 .mallorca-checkout select,
 .woocommerce-input-wrapper input,
-.woocommerce-input-wrapper select {
+.woocommerce-input-wrapper select,
+.mallorca-checkout textarea {
 	border: 0;
 	border-bottom: 1px solid var(--color-sand);
 	background: transparent;
 	width: 100%;
 	padding: 0.7rem 0;
 	border-radius: 0;
+	color: var(--color-chocolate);
+	font-size: 1rem;
+}
+
+.mallorca-checkout input.input-text:focus,
+.mallorca-checkout select:focus,
+.mallorca-checkout textarea:focus {
+	outline: none;
+	border-bottom-color: var(--color-burgundy);
 }
 
 .mallorca-checkout label {
-	font-size: 0.72rem;
-	letter-spacing: 0.1em;
+	font-size: 0.68rem;
+	letter-spacing: 0.12em;
 	text-transform: uppercase;
 	color: var(--color-olive);
 }
 
 .mallorca-checkout__summary {
 	position: sticky;
-	top: calc(var(--header-h) + 1.25rem);
-	background: var(--color-cream);
-	padding: 1.75rem;
+	top: calc(var(--header-h) + 1.1rem);
+	background: linear-gradient(180deg, var(--color-cream) 0%, color-mix(in srgb, var(--color-bone) 50%, var(--color-cream)) 100%);
+	padding: clamp(1.35rem, 2.5vw, 1.85rem);
+	border: 1px solid color-mix(in srgb, var(--color-sand) 40%, transparent);
 }
 
 .mallorca-checkout__summary .mallorca-kicker {
-	margin-bottom: 1rem;
+	margin: -0.35rem 0 1.1rem;
+	color: var(--color-olive);
 }
 
 .mallorca-checkout #order_review,
@@ -87,13 +132,43 @@
 	width: 100%;
 	border: 0;
 	background: none;
+	margin: 0 0 1rem;
 }
 
 .mallorca-checkout table.shop_table th,
 .mallorca-checkout table.shop_table td {
 	border: 0;
-	border-bottom: 1px solid color-mix(in srgb, var(--color-sand) 70%, transparent);
-	padding: 0.7rem 0;
+	border-bottom: 1px solid color-mix(in srgb, var(--color-sand) 65%, transparent);
+	padding: 0.75rem 0;
+	background: none;
+	font-size: 0.95rem;
+}
+
+.mallorca-checkout table.shop_table .order-total th,
+.mallorca-checkout table.shop_table .order-total td {
+	font-family: var(--font-heading);
+	font-size: 1.3rem;
+	color: var(--color-chocolate);
+	border-bottom: 0;
+	padding-top: 1rem;
+}
+
+.mallorca-checkout #payment {
+	background: transparent;
+	border-radius: 0;
+	padding: 0;
+}
+
+.mallorca-checkout #payment ul.payment_methods {
+	padding: 0;
+	margin: 0 0 1rem;
+	border: 0;
+	border-top: 1px solid color-mix(in srgb, var(--color-sand) 55%, transparent);
+}
+
+.mallorca-checkout #payment ul.payment_methods li {
+	padding: 0.75rem 0;
+	border: 0;
 	background: none;
 }
 
@@ -104,9 +179,17 @@
 	border: 0;
 	border-radius: 0;
 	width: 100%;
-	padding: 1rem;
+	padding: 1.05rem;
 	text-transform: uppercase;
-	letter-spacing: 0.08em;
+	letter-spacing: 0.1em;
+	font-size: 0.78rem;
+	margin-top: 0.35rem;
+	transition: background var(--ease);
+}
+
+.mallorca-checkout #place_order:hover,
+.woocommerce-checkout #place_order:hover {
+	background: var(--color-chocolate);
 }
 
 .woocommerce-invalid input {
@@ -114,8 +197,11 @@
 }
 
 .mallorca-thankyou {
-	width: min(calc(100% - 2.5rem), 48rem);
-	margin: 3rem auto 12vh;
+	width: min(calc(100% - 2rem), 42rem);
+	margin: clamp(2.5rem, 6vw, 4rem) auto 12vh;
+	padding: clamp(1.5rem, 3vw, 2rem);
+	background: color-mix(in srgb, var(--color-cream) 70%, var(--color-white));
+	border: 1px solid color-mix(in srgb, var(--color-sand) 40%, transparent);
 }
 
 .mallorca-thankyou__meta {
@@ -128,14 +214,14 @@
 	display: flex;
 	justify-content: space-between;
 	gap: 1rem;
-	padding: 0.55rem 0;
-	border-bottom: 1px solid var(--color-bone);
+	padding: 0.65rem 0;
+	border-bottom: 1px solid color-mix(in srgb, var(--color-sand) 55%, transparent);
 }
 
 .mallorca-thankyou__meta span {
 	text-transform: uppercase;
 	letter-spacing: 0.12em;
-	font-size: 0.7rem;
+	font-size: 0.68rem;
 	color: var(--color-olive);
 }
 

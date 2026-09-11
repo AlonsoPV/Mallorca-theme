@@ -21,6 +21,53 @@ function mallorca_mod( $key, $default = '' ) {
 }
 
 /**
+ * Relative path of the brand logo asset.
+ *
+ * @param string $variant dark|light|original.
+ * @return string
+ */
+function mallorca_brand_logo_rel( $variant = 'dark' ) {
+	$map = array(
+		'dark'     => 'assets/images/brand/mallorca-logo-dark.webp',
+		'light'    => 'assets/images/brand/mallorca-logo-light.webp',
+		'original' => 'assets/images/brand/mallorca-logo.webp',
+	);
+	return isset( $map[ $variant ] ) ? $map[ $variant ] : $map['dark'];
+}
+
+/**
+ * Absolute URI for a brand logo variant.
+ *
+ * @param string $variant dark|light|original.
+ * @return string
+ */
+function mallorca_brand_logo_url( $variant = 'dark' ) {
+	return trailingslashit( MALLORCA_URI ) . mallorca_brand_logo_rel( $variant );
+}
+
+/**
+ * Print the Mallorca brand logo link.
+ *
+ * @param string $context header|footer|drawer.
+ */
+function mallorca_the_brand_logo( $context = 'header' ) {
+	$variant = ( 'footer' === $context ) ? 'light' : 'dark';
+	$class   = 'header' === $context ? 'mallorca-brand-logo' : 'mallorca-brand-logo mallorca-brand-logo--' . sanitize_html_class( $context );
+	$url     = mallorca_brand_logo_url( $variant );
+	$alt     = get_bloginfo( 'name', 'display' );
+	if ( ! $alt ) {
+		$alt = __( 'Pastelería Mallorca', 'mallorca' );
+	}
+	printf(
+		'<a class="%1$s" href="%2$s" rel="home"><img class="mallorca-brand-logo__img" src="%3$s" alt="%4$s" width="576" height="263" decoding="async" /></a>',
+		esc_attr( $class ),
+		esc_url( home_url( '/' ) ),
+		esc_url( $url ),
+		esc_attr( $alt )
+	);
+}
+
+/**
  * Resolve a section argument from Elementor widget args or Customizer.
  *
  * @param array  $args     Template args.

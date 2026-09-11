@@ -77,18 +77,41 @@ body.admin-bar .mallorca-header {
 	justify-self: center;
 }
 
-.mallorca-header__brand img,
-.mallorca-header__brand .custom-logo {
-	max-height: 42px;
-	width: auto;
+.mallorca-header__brand .mallorca-brand-logo,
+.mallorca-header__brand .custom-logo-link {
+	display: block;
+	line-height: 0;
 }
 
-.mallorca-header.is-compact .mallorca-wordmark {
-	font-size: 1.45rem;
+.mallorca-header__brand img,
+.mallorca-header__brand .custom-logo,
+.mallorca-header__brand .mallorca-brand-logo__img {
+	display: block;
+	max-height: 48px;
+	width: auto;
+	height: auto;
+}
+
+.mallorca-header.is-compact .mallorca-header__brand img,
+.mallorca-header.is-compact .mallorca-header__brand .mallorca-brand-logo__img {
+	max-height: 40px;
 }
 
 .mallorca-header.is-compact .mallorca-header__inner {
 	min-height: 4.1rem;
+}
+
+.mallorca-drawer__top .mallorca-brand-logo {
+	display: block;
+	line-height: 0;
+	max-width: 11rem;
+}
+
+.mallorca-drawer__top .mallorca-brand-logo__img {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-height: 44px;
 }
 
 .mallorca-cart-count {

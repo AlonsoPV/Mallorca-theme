@@ -15,15 +15,11 @@ $args      = isset( $args ) && is_array( $args ) ? $args : array();
 $title     = mallorca_arg( $args, 'title', 'ig_title', mallorca_default_copy()['ig_title'] );
 $shortcode = mallorca_arg( $args, 'shortcode', 'ig_shortcode', '' );
 $gallery   = isset( $args['gallery'] ) && is_array( $args['gallery'] ) ? $args['gallery'] : array();
-$ig_url    = mallorca_mod( 'instagram_url', '' );
 $fallback  = array( 'product-ensaimada.jpg', 'product-croissant.jpg', 'product-santiago.jpg', 'experience-cafe.jpg', 'product-palmera.jpg', 'product-caja.jpg' );
 ?>
 <section class="mallorca-ig">
 	<div class="mallorca-section-head">
 		<h2><?php echo esc_html( $title ); ?></h2>
-		<?php if ( $ig_url ) : ?>
-			<a class="mallorca-btn mallorca-btn--text" href="<?php echo esc_url( $ig_url ); ?>">Instagram</a>
-		<?php endif; ?>
 	</div>
 	<?php if ( $shortcode ) : ?>
 		<div class="mallorca-ig__plugin"><?php echo do_shortcode( $shortcode ); ?></div>

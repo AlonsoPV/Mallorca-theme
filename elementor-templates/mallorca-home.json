@@ -31,21 +31,6 @@
       ]
     },
     {
-      "id": "mcats01",
-      "elType": "section",
-      "settings": { "layout": "full_width", "gap": "no" },
-      "elements": [
-        {
-          "id": "mcatsc1",
-          "elType": "column",
-          "settings": { "_column_size": 100 },
-          "elements": [
-            { "id": "mcatsw1", "elType": "widget", "widgetType": "mallorca_categories", "settings": {} }
-          ]
-        }
-      ]
-    },
-    {
       "id": "mfav01",
       "elType": "section",
       "settings": { "layout": "full_width", "gap": "no" },
@@ -131,21 +116,6 @@
           "settings": { "_column_size": 100 },
           "elements": [
             { "id": "migw1", "elType": "widget", "widgetType": "mallorca_instagram", "settings": {} }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "mnew01",
-      "elType": "section",
-      "settings": { "layout": "full_width", "gap": "no" },
-      "elements": [
-        {
-          "id": "mnewc1",
-          "elType": "column",
-          "settings": { "_column_size": 100 },
-          "elements": [
-            { "id": "mneww1", "elType": "widget", "widgetType": "mallorca_newsletter", "settings": {} }
           ]
         }
       ]
