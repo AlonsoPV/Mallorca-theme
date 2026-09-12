@@ -93,15 +93,64 @@
 	});
 
 	const sticky = $('.js-mallorca-sticky-atc');
-	if (sticky) {
+	const stickyBar = $('.js-mallorca-sticky-bar');
+	const purchaseBlock = $('#mallorca-purchase');
+	const atcBtn = $('#mallorca-add-to-cart .single_add_to_cart_button');
+	const footer = $('.mallorca-footer');
+
+	if (sticky && atcBtn) {
 		sticky.addEventListener('click', (e) => {
-			const target = document.querySelector('#mallorca-add-to-cart .single_add_to_cart_button');
-			if (target) {
-				e.preventDefault();
-				target.click();
-			}
+			e.preventDefault();
+			atcBtn.click();
 		});
 	}
+
+	const stickyTarget = purchaseBlock || atcBtn;
+
+	if (stickyBar && stickyTarget && 'IntersectionObserver' in window && window.matchMedia('(max-width: 900px)').matches) {
+		let atcVisible = true;
+		let footerVisible = false;
+		const syncSticky = () => {
+			const show = !atcVisible && !footerVisible && !!atcBtn && !atcBtn.disabled;
+			stickyBar.hidden = !show;
+			stickyBar.classList.toggle('is-visible', show);
+		};
+		const atcIo = new IntersectionObserver(
+			([entry]) => {
+				atcVisible = entry.isIntersecting;
+				syncSticky();
+			},
+			{ threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+		);
+		atcIo.observe(stickyTarget);
+		if (footer) {
+			const footIo = new IntersectionObserver(
+				([entry]) => {
+					footerVisible = entry.isIntersecting;
+					syncSticky();
+				},
+				{ rootMargin: '0px 0px -10% 0px', threshold: 0 }
+			);
+			footIo.observe(footer);
+		}
+	}
+
+	$$('.js-mallorca-qty').forEach((btn) => {
+		btn.addEventListener('click', () => {
+			const wrap = btn.closest('.quantity');
+			const input = wrap && wrap.querySelector('input.qty');
+			if (!input) return;
+			const step = parseFloat(input.step || '1') || 1;
+			const min = input.min !== '' ? parseFloat(input.min) : 0;
+			const max = input.max !== '' ? parseFloat(input.max) : Infinity;
+			const dir = parseInt(btn.getAttribute('data-dir') || '1', 10);
+			let next = (parseFloat(input.value) || 0) + dir * step;
+			if (next < min) next = min;
+			if (next > max) next = max;
+			input.value = String(next);
+			input.dispatchEvent(new Event('change', { bubbles: true }));
+		});
+	});
 
 	const searchInput = $('.js-mallorca-search-input');
 	const results = $('.js-mallorca-search-results');
@@ -152,5 +201,146 @@
 		revealNodes.forEach((node) => io.observe(node));
 	} else {
 		revealNodes.forEach((node) => node.classList.add('is-in'));
+	}
+
+	/**
+	 * Keep external fixed widgets (WPCafe location, sticky ATC, etc.)
+	 * from covering footer content. Lifts them by measured footer overlap;
+	 * hides only when lift would push the control off-screen.
+	 */
+	const FLOAT_SELECTORS = [
+		'.wpc-floating-location',
+		'.mallorca-sticky-atc',
+		'.mallorca-float-aware',
+		'.woofc-floating-cart',
+		'.xoo-wsc-basket',
+	];
+
+	const collectFloatWidgets = () =>
+		FLOAT_SELECTORS.flatMap((sel) => {
+			try {
+				return $$(sel);
+			} catch (err) {
+				return [];
+			}
+		}).filter((el, i, arr) => {
+			if (!el || arr.indexOf(el) !== i) return false;
+			const pos = getComputedStyle(el).position;
+			return pos === 'fixed' || pos === 'sticky' || el.classList.contains('wpc-floating-location');
+		});
+
+	const readFloatBaseBottom = (el) => {
+		const inline = el.style.bottom;
+		el.style.bottom = '';
+		const computedBottom = getComputedStyle(el).bottom;
+		el.style.bottom = inline;
+		const parsed =
+			computedBottom && computedBottom !== 'auto' ? parseFloat(computedBottom) : NaN;
+		return Number.isFinite(parsed) ? parsed : 20;
+	};
+
+	const syncFloatingAboveFooter = () => {
+		const footer = $('.mallorca-footer');
+		if (!footer) return;
+
+		const widgets = collectFloatWidgets();
+		if (!widgets.length) return;
+
+		const vh = window.innerHeight || document.documentElement.clientHeight;
+		const footerTop = footer.getBoundingClientRect().top;
+		const clearance = 16;
+		const overlap = Math.max(0, vh - footerTop + clearance);
+
+		widgets.forEach((el) => {
+			el.classList.add('mallorca-float-aware');
+
+			if (overlap <= 0) {
+				el.style.bottom = '';
+				el.classList.remove('is-footer-hidden');
+				delete el.dataset.mallorcaFloatBase;
+				return;
+			}
+
+			if (el.dataset.mallorcaFloatBase == null) {
+				el.dataset.mallorcaFloatBase = String(readFloatBaseBottom(el));
+			}
+
+			const base = parseFloat(el.dataset.mallorcaFloatBase) || 20;
+			const nextBottom = base + overlap;
+			const elHeight = el.getBoundingClientRect().height || 64;
+			const wouldLeaveViewport = nextBottom + elHeight > vh - 8;
+
+			if (wouldLeaveViewport) {
+				el.classList.add('is-footer-hidden');
+				el.style.bottom = `${base}px`;
+				return;
+			}
+
+			el.classList.remove('is-footer-hidden');
+			el.style.bottom = `${nextBottom}px`;
+		});
+	};
+
+	const bindFloatingFooterGuard = () => {
+		const footer = $('.mallorca-footer');
+		if (!footer) return;
+
+		let ticking = false;
+		let dirty = false;
+
+		const schedule = () => {
+			dirty = true;
+			if (ticking) return;
+			ticking = true;
+			requestAnimationFrame(() => {
+				ticking = false;
+				if (!dirty) return;
+				dirty = false;
+				syncFloatingAboveFooter();
+				if (dirty) schedule();
+			});
+		};
+
+		const onResize = () => {
+			collectFloatWidgets().forEach((el) => {
+				delete el.dataset.mallorcaFloatBase;
+				el.style.bottom = '';
+				el.classList.remove('is-footer-hidden');
+			});
+			schedule();
+		};
+
+		window.addEventListener('scroll', schedule, { passive: true });
+		window.addEventListener('resize', onResize, { passive: true });
+
+		if ('IntersectionObserver' in window) {
+			const io = new IntersectionObserver(schedule, {
+				root: null,
+				threshold: [0, 0.01, 0.1, 0.25, 0.5, 0.75, 1],
+			});
+			io.observe(footer);
+		}
+
+		// WPCafe may inject the floating widget after first paint.
+		const mo = new MutationObserver((mutations) => {
+			const added = mutations.some((m) =>
+				[...m.addedNodes].some(
+					(n) =>
+						n.nodeType === 1 &&
+						(n.matches?.('.wpc-floating-location') || n.querySelector?.('.wpc-floating-location'))
+				)
+			);
+			if (added) schedule();
+		});
+		mo.observe(document.body, { childList: true, subtree: true });
+		setTimeout(() => mo.disconnect(), 10000);
+
+		schedule();
+	};
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', bindFloatingFooterGuard);
+	} else {
+		bindFloatingFooterGuard();
 	}
 })();

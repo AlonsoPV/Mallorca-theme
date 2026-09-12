@@ -13,16 +13,14 @@ do_action( 'woocommerce_before_cart' );
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
 	<div class="mallorca-cart__layout">
 		<div class="mallorca-cart__items">
-			<p class="mallorca-cart__kicker"><?php esc_html_e( 'Pastelería Mallorca', 'mallorca' ); ?></p>
-			<h1><?php esc_html_e( 'Tu pedido', 'mallorca' ); ?></h1>
+			<h1 class="mallorca-cart__title"><?php esc_html_e( 'Tu pedido', 'mallorca' ); ?></h1>
 			<?php if ( WC()->cart->is_empty() ) : ?>
-				<div class="mallorca-empty">
+				<div class="mallorca-empty mallorca-empty--inline">
 					<p><?php esc_html_e( 'El carrito está vacío.', 'mallorca' ); ?></p>
 					<a class="mallorca-btn mallorca-btn--solid" href="<?php echo esc_url( mallorca_shop_url() ); ?>"><?php esc_html_e( 'Seguir explorando', 'mallorca' ); ?></a>
 				</div>
 			<?php else : ?>
-				<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
-					<tbody>
+				<div class="mallorca-cart-lines woocommerce-cart-form__contents">
 					<?php
 					do_action( 'woocommerce_before_cart_contents' );
 					foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
@@ -33,21 +31,29 @@ do_action( 'woocommerce_before_cart' );
 						}
 						$permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
 						?>
-						<tr class="woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
-							<td class="product-thumbnail">
-								<?php echo apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-							</td>
-							<td class="product-name" data-title="<?php esc_attr_e( 'Producto', 'mallorca' ); ?>">
+						<article class="mallorca-cart-line woocommerce-cart-form__cart-item <?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
+							<div class="mallorca-cart-line__media product-thumbnail">
 								<?php
 								if ( $permalink ) {
-									echo '<a href="' . esc_url( $permalink ) . '">' . wp_kses_post( $_product->get_name() ) . '</a>';
+									echo '<a href="' . esc_url( $permalink ) . '">';
+								}
+								echo apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image( 'woocommerce_thumbnail' ), $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								if ( $permalink ) {
+									echo '</a>';
+								}
+								?>
+							</div>
+							<div class="mallorca-cart-line__main product-name">
+								<?php
+								if ( $permalink ) {
+									echo '<a class="mallorca-cart-line__title" href="' . esc_url( $permalink ) . '">' . wp_kses_post( $_product->get_name() ) . '</a>';
 								} else {
-									echo wp_kses_post( $_product->get_name() );
+									echo '<span class="mallorca-cart-line__title">' . wp_kses_post( $_product->get_name() ) . '</span>';
 								}
 								echo wc_get_formatted_cart_item_data( $cart_item ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								?>
-							</td>
-							<td class="product-quantity" data-title="<?php esc_attr_e( 'Cantidad', 'mallorca' ); ?>">
+							</div>
+							<div class="mallorca-cart-line__qty product-quantity">
 								<?php
 								if ( $_product->is_sold_individually() ) {
 									$min = 1;
@@ -68,39 +74,37 @@ do_action( 'woocommerce_before_cart' );
 									false
 								);
 								?>
-							</td>
-							<td class="product-subtotal" data-title="<?php esc_attr_e( 'Precio', 'mallorca' ); ?>">
+							</div>
+							<div class="mallorca-cart-line__subtotal product-subtotal">
 								<?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-							</td>
-							<td class="product-remove">
+							</div>
+							<div class="mallorca-cart-line__remove product-remove">
 								<?php
 								echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									'woocommerce_cart_item_remove_link',
 									sprintf(
-										'<a role="button" href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s">&times;</a>',
+										'<a role="button" href="%s" class="remove" aria-label="%s" data-product_id="%s" data-product_sku="%s"><span aria-hidden="true">&times;</span><span class="screen-reader-text">%s</span></a>',
 										esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
-										esc_html__( 'Eliminar', 'mallorca' ),
-										esc_attr( $product_id ),
-										esc_attr( $_product->get_sku() )
+										esc_attr( sprintf( __( 'Eliminar %s', 'mallorca' ), wp_strip_all_tags( $_product->get_name() ) ) ),
+										esc_attr( (string) $product_id ),
+										esc_attr( $_product->get_sku() ),
+										esc_html__( 'Eliminar', 'mallorca' )
 									),
 									$cart_item_key
 								);
 								?>
-							</td>
-						</tr>
+							</div>
+						</article>
 						<?php
 					}
 					do_action( 'woocommerce_cart_contents' );
 					?>
-					<tr>
-						<td colspan="5" class="actions">
-							<button type="submit" class="mallorca-btn mallorca-btn--ghost" name="update_cart" value="<?php esc_attr_e( 'Actualizar', 'mallorca' ); ?>"><?php esc_html_e( 'Actualizar pedido', 'mallorca' ); ?></button>
-							<?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
-						</td>
-					</tr>
-					<?php do_action( 'woocommerce_after_cart_contents' ); ?>
-					</tbody>
-				</table>
+				</div>
+				<div class="mallorca-cart__actions actions">
+					<button type="submit" class="mallorca-cart__update" name="update_cart" value="<?php esc_attr_e( 'Actualizar', 'mallorca' ); ?>"><?php esc_html_e( 'Actualizar cantidades', 'mallorca' ); ?></button>
+					<?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
+				</div>
+				<?php do_action( 'woocommerce_after_cart_contents' ); ?>
 			<?php endif; ?>
 		</div>
 		<?php if ( ! WC()->cart->is_empty() ) : ?>

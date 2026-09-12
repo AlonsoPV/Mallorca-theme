@@ -50,10 +50,6 @@ if ( post_password_required() ) {
 			<?php do_action( 'woocommerce_before_single_product_summary' ); ?>
 		</div>
 		<div id="mallorca-add-to-cart" class="mallorca-single__summary summary entry-summary">
-			<?php if ( function_exists( 'woocommerce_breadcrumb' ) ) : ?>
-				<div class="mallorca-breadcrumb"><?php woocommerce_breadcrumb(); ?></div>
-			<?php endif; ?>
-			<p class="mallorca-kicker"><?php esc_html_e( 'Pastelería', 'mallorca' ); ?></p>
 			<?php do_action( 'woocommerce_single_product_summary' ); ?>
 		</div>
 	</div>

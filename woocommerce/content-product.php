@@ -34,6 +34,12 @@ $weight   = mallorca_product_extra( $product->get_id(), 'weight' );
 		?>
 	</a>
 	<div class="mallorca-card__body">
+		<?php
+		$cats = get_the_terms( $product->get_id(), 'product_cat' );
+		if ( $cats && ! is_wp_error( $cats ) ) {
+			echo '<span class="mallorca-card__cat">' . esc_html( $cats[0]->name ) . '</span>';
+		}
+		?>
 		<h2 class="woocommerce-loop-product__title"><a href="<?php echo esc_url( $product->get_permalink() ); ?>"><?php echo esc_html( $product->get_name() ); ?></a></h2>
 		<?php if ( $servings || $weight ) : ?>
 			<p class="mallorca-card__meta"><?php echo esc_html( trim( $servings . ' ' . $weight ) ); ?></p>

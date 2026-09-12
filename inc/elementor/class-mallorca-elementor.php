@@ -122,7 +122,7 @@ function mallorca_sync_elementor_kit() {
 	if ( ! class_exists( '\Elementor\Plugin' ) ) {
 		return;
 	}
-	if ( get_option( 'mallorca_elementor_kit_synced' ) ) {
+	if ( 'montserrat-1' === get_option( 'mallorca_elementor_kit_synced' ) ) {
 		return;
 	}
 	if ( ! isset( \Elementor\Plugin::$instance->kits_manager ) ) {
@@ -146,25 +146,25 @@ function mallorca_sync_elementor_kit() {
 				array(
 					'_id'            => 'primary',
 					'title'          => 'Primary',
-					'typography_font_family' => 'Cormorant Garamond',
-					'typography_font_weight' => '500',
+					'typography_font_family' => 'Montserrat',
+					'typography_font_weight' => '600',
 				),
 				array(
 					'_id'            => 'secondary',
 					'title'          => 'Secondary',
-					'typography_font_family' => 'Figtree',
+					'typography_font_family' => 'Montserrat',
 					'typography_font_weight' => '400',
 				),
 				array(
 					'_id'            => 'text',
 					'title'          => 'Text',
-					'typography_font_family' => 'Figtree',
+					'typography_font_family' => 'Montserrat',
 					'typography_font_weight' => '400',
 				),
 				array(
 					'_id'            => 'accent',
 					'title'          => 'Accent',
-					'typography_font_family' => 'Figtree',
+					'typography_font_family' => 'Montserrat',
 					'typography_font_weight' => '500',
 				),
 			),
@@ -190,7 +190,7 @@ function mallorca_sync_elementor_kit() {
 		)
 	);
 
-	update_option( 'mallorca_elementor_kit_synced', 1 );
+	update_option( 'mallorca_elementor_kit_synced', 'montserrat-1' );
 }
 add_action( 'elementor/init', 'mallorca_sync_elementor_kit', 20 );
 

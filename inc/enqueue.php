@@ -84,7 +84,7 @@ add_action( 'wp_enqueue_scripts', 'mallorca_enqueue_assets', 20 );
  * Preload heading font.
  */
 function mallorca_preload_fonts() {
-	$font = MALLORCA_URI . '/assets/fonts/cormorant-500.woff2';
+	$font = MALLORCA_URI . '/assets/fonts/montserrat-500.woff2';
 	echo '<link rel="preload" href="' . esc_url( $font ) . '" as="font" type="font/woff2" crossorigin>' . "\n";
 }
 add_action( 'wp_head', 'mallorca_preload_fonts', 1 );
@@ -103,8 +103,8 @@ function mallorca_customizer_css() {
 	$sand      = mallorca_mod( 'color_sand', '#C9BBA6' );
 	$preset    = mallorca_mod( 'type_preset', 'editorial' );
 
-	$heading = '"Cormorant Garamond", "Iowan Old Style", Georgia, serif';
-	$body    = 'Figtree, "Helvetica Neue", Helvetica, Arial, sans-serif';
+	$heading = 'Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif';
+	$body    = 'Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif';
 
 	if ( 'clasica' === $preset ) {
 		$heading = 'Georgia, "Times New Roman", serif';

@@ -1,63 +1,31 @@
 @font-face {
-	font-family: "Cormorant Garamond";
-	src: url("../fonts/cormorant-400.woff2") format("woff2");
+	font-family: Montserrat;
+	src: url("../fonts/montserrat-400.woff2") format("woff2");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: "Cormorant Garamond";
-	src: url("../fonts/cormorant-italic.woff2") format("woff2");
-	font-weight: 400;
-	font-style: italic;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: "Cormorant Garamond";
-	src: url("../fonts/cormorant-500.woff2") format("woff2");
+	font-family: Montserrat;
+	src: url("../fonts/montserrat-500.woff2") format("woff2");
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: "Cormorant Garamond";
-	src: url("../fonts/cormorant-600.woff2") format("woff2");
+	font-family: Montserrat;
+	src: url("../fonts/montserrat-600.woff2") format("woff2");
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: "Cormorant Garamond";
-	src: url("../fonts/cormorant-700.woff2") format("woff2");
+	font-family: Montserrat;
+	src: url("../fonts/montserrat-700.woff2") format("woff2");
 	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Figtree;
-	src: url("../fonts/figtree-400.woff2") format("woff2");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Figtree;
-	src: url("../fonts/figtree-500.woff2") format("woff2");
-	font-weight: 500;
-	font-style: normal;
-	font-display: swap;
-}
-
-@font-face {
-	font-family: Figtree;
-	src: url("../fonts/figtree-600.woff2") format("woff2");
-	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
 }
@@ -72,8 +40,8 @@
 	--color-olive: #5a5840;
 	--color-sand: #c9bba6;
 	--color-white: #fffcfa;
-	--font-heading: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
-	--font-body: Figtree, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--font-heading: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	--font-body: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	--space: clamp(1.25rem, 3vw, 3rem);
 	--max: 1280px;
 	--header-h: 5.5rem;

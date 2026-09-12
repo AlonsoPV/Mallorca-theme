@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'MALLORCA_VERSION', '1.2.0' );
+define( 'MALLORCA_VERSION', '1.2.1' );
 define( 'MALLORCA_DIR', get_template_directory() );
 define( 'MALLORCA_URI', get_template_directory_uri() );
 
